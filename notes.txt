@@ -1,0 +1,25 @@
+book
+	id
+	title
+	authors_id belongs to many
+	slug
+	genres_id (belong_to_many)
+	cover_image
+	discount
+	published boolean
+	user belongsto user
+	reviewbook boolean
+
+genres
+	id
+	name
+authors
+	id
+	name
+
+reviews
+	book_id
+	user_id
+	Star
+	comment
+	
