@@ -1,14 +1,15 @@
 book
 	id
 	title
-	authors_id belongs to many
-	slug
-	genres_id (belong_to_many)
+	
+	slug	
 	cover_image
 	discount
 	published boolean
-	user belongsto user
-	reviewbook boolean
+	need_2_review boolean
+	user belongsto user	
+	authors_id belongs to many
+	genres_id (belong_to_many)
 
 genres
 	id
