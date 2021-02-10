@@ -6,32 +6,18 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateBooksTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('books', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('title');
-            $table->string('slug');
-            $table->number('discount');
-            $table->boolean('published');
-            $table->boolean('review');
-            
+            $table->string('description');
+            $table->string('slug')->nullable();
+            $table->float('discount_percent', 5, 2);
+            $table->boolean('need_2_review')->default(0)->nullable();
+            $table->boolean('published')->default(0);
             $table->timestamps();
+            $table->softDeletes();
         });
-    }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('books');
     }
 }
