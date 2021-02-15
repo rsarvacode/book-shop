@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\AuthorsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,9 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::resource('Authors', AuthorsController::class,['names' => 'authors'])->middleware('auth');
+
+Route::get('/', [App\Http\Controllers\HomeViewController::class, 'index']);
 
 Auth::routes();
 
